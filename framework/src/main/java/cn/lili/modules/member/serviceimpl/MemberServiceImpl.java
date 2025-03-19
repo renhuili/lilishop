@@ -118,7 +118,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     public Member getUserInfo() {
         AuthUser tokenUser = UserContext.getCurrentUser();
         if (tokenUser != null) {
-            return this.findByUsername(tokenUser.getUsername());
+            Member member = this.findByUsername(tokenUser.getUsername());
+            if(member != null && !member.getDisabled()){
+                throw new ServiceException(ResultCode.USER_STATUS_ERROR);
+            }
+            return member;
         }
         throw new ServiceException(ResultCode.USER_NOT_LOGIN);
     }
@@ -233,7 +237,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper, Member> impleme
     private Member findMember(String userName) {
         QueryWrapper<Member> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("username", userName).or().eq("mobile", userName);
-        return this.getOne(queryWrapper);
+        return this.getOne(queryWrapper, false);
     }
 
     @Override

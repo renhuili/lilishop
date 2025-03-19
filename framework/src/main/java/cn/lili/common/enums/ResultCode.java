@@ -42,6 +42,7 @@ public enum ResultCode {
     PLATFORM_NOT_SUPPORTED_IM(1006, "平台未开启IM"),
     STORE_NOT_SUPPORTED_IM(1007, "店铺未开启IM"),
     UNINITIALIZED_PASSWORD(1008, "非初始化密码，无法进行初始化设置"),
+    FILE_DIRECTORY_NOT_EMPTY(1012, "文件夹下有文件，请删除所有文件后删除文件夹！"),
     /**
      * 分类
      */
@@ -89,6 +90,7 @@ public enum ResultCode {
     VIRTUAL_GOODS_NOT_NEED_TEMP(11015, "虚拟商品无需选择配送模板"),
     GOODS_NOT_EXIST_STORE(11017, "当前用户无权操作此商品"),
     GOODS_TYPE_ERROR(11016, "需选择商品类型"),
+    GOODS_STOCK_IMPORT_ERROR(11018, "导入商品库存失败，请检查表格数据"),
 
     /**
      * 参数
@@ -150,6 +152,7 @@ public enum ResultCode {
     CLERK_DISABLED_ERROR(20031, "店员已禁用"),
     CLERK_CURRENT_SUPPER(20032, "无法删除当前登录店员"),
     CANT_EDIT_CLERK_SHOPKEEPER(20033, "无法在店员管理编辑店员信息"),
+    USER_MOBILE_REPEATABLE_ERROR(20034, "该手机号已存在"),
     /**
      * 权限
      */
@@ -173,6 +176,7 @@ public enum ResultCode {
     DISTRIBUTION_RETREAT_ERROR(22004, "分销员清退失败"),
     DISTRIBUTION_CASH_NOT_EXIST(22005, "分销员提现记录不存在"),
     DISTRIBUTION_GOODS_DOUBLE(22006, "不能重复添加分销商品"),
+    DISTRIBUTION_EDIT_ERROR(22007, "修改分销员失败"),
 
     /**
      * 购物车
